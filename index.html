@@ -53,11 +53,12 @@
 <body>
 
     <div class="container">
+        <h1 class="mb-3">Ayubullah</h1>
         <h2 class="mb-3">🌙 Eid Mubarak 🎉</h2>
         <p>Enter your name and get a special Eid greeting!</p>
         
         <input type="text" id="nameInput" class="form-control mb-3" placeholder="Enter your name">
-        <button class="btn btn-success" onclick="sayEidMubarak()">Clck OK </button>
+        <button class="btn btn-success" onclick="sayEidMubarak()">Click OK</button>
         
         <p id="eidMessage" class="eid-message"></p>
         <div id="fireworks" class="fireworks">✨🎇🎆✨</div>
@@ -71,11 +72,9 @@
                 return;
             }
             
-            // Show Eid Mubarak message
+            // Show Eid Mubarak message with bold and red name
             let message = document.getElementById("eidMessage");
-            message.innerHTML = `Eid Mubarak, ${name}! 🌸🎉 Eid Mubarak! Wishing you and your family a joyous Eid-ul-Fitr 2025 filled with blessings and happiness. May this special day bring you joy and prosperity.
-
-Ayubullah Zazai`;
+            message.innerHTML = `Eid Mubarak, <span style="font-weight: bold; color: red;">${name}</span>! 🌸🎉 Eid Mubarak! Wishing you and your family a joyous Eid-ul-Fitr 2025 filled with blessings and happiness. May this special day bring you joy and prosperity.<br><br>Ayubullah Zazai`;  
             message.style.display = "block";
 
             // Show fireworks effect
