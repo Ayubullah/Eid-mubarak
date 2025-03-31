@@ -4,15 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eid Mubarak</title>
-    <script>
-        function sayEidMubarak() {
-            alert("Eid Mubarak, Shahid! May this Eid bring you joy and prosperity.");
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS for Animations -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 50px;
         }
-    </script>
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        .eid-message {
+            font-size: 24px;
+            font-weight: bold;
+            color: green;
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .fireworks {
+            display: none;
+            font-size: 50px;
+            color: red;
+            animation: boom 1s ease-in-out infinite alternate;
+        }
+        @keyframes boom {
+            from { transform: scale(1); }
+            to { transform: scale(1.5); }
+        }
+    </style>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
-    <a href="javascript:sayEidMubarak()">Click to Say Eid Mubarak</a>
+    <div class="container">
+        <h2 class="mb-3">🌙 Eid Mubarak 🎉</h2>
+        <p>Enter your name and get a special Eid greeting!</p>
+        
+        <input type="text" id="nameInput" class="form-control mb-3" placeholder="Enter your name">
+        <button class="btn btn-success" onclick="sayEidMubarak()">Say Eid Mubarak</button>
+        
+        <p id="eidMessage" class="eid-message"></p>
+        <div id="fireworks" class="fireworks">✨🎇🎆✨</div>
+    </div>
+
+    <script>
+        function sayEidMubarak() {
+            let name = document.getElementById("nameInput").value.trim();
+            if (name === "") {
+                alert("Please enter your name first!");
+                return;
+            }
+            
+            // Show Eid Mubarak message
+            let message = document.getElementById("eidMessage");
+            message.innerHTML = `Eid Mubarak, ${name}! 🌸🎉 May this Eid bring you happiness and success.`;
+            message.style.display = "block";
+
+            // Show fireworks effect
+            let fireworks = document.getElementById("fireworks");
+            fireworks.style.display = "block";
+
+            // Hide fireworks after 3 seconds
+            setTimeout(() => {
+                fireworks.style.display = "none";
+            }, 3000);
+        }
+    </script>
 
 </body>
 </html>
